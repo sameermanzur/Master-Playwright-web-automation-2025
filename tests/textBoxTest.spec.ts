@@ -13,9 +13,10 @@ test('Press Sequential Method test', async ({page}) =>{
    // Why sequential? - press keys sequentially==> enter each keys individually 
    // Real Time use case- behave like entering by real user 
    await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-   await page.pause(); 
    await page.locator('[name="username"]').pressSequentially('Admin');
    await page.locator('//input[@placeholder="Password"]').pressSequentially('admin123'); 
+   await page.locator('[type="submit"]').click();
+   await expect(page.locator('[class="oxd-topbar-header-title"]')).toHaveText('Dashboard'); 
    await page.pause(); 
 }); 
 
