@@ -17,5 +17,8 @@
     "lint": "eslint --ext .ts tests/",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.31.1"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
   }
 }
