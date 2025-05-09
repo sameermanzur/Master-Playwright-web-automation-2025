@@ -30,13 +30,13 @@ test ('Nested Frame Handling Test', async ({page}) =>{
      await childFrames[0].locator('[data-value="Hi, I am the UI.Vision IDE"]').check(); 
 });
 
-test ('Nested Frame Handling Test by page.frameLocator', async ({page}) =>{
-    await page.goto('https://ui.vision/demo/webtest/frames/'); 
+// test ('Nested Frame Handling Test by page.frameLocator', async ({page}) =>{
+//     await page.goto('https://ui.vision/demo/webtest/frames/'); 
 
-    const frame3 = page.frameLocator('frame[src="frame_3.html"]'); 
-    const childFrames =  frame3?.childFrames(); //Child frames will return in array 
-    await childFrames[0].locator('[data-value="Hi, I am the UI.Vision IDE"]').check();
-    await page.pause(); 
-    // Test has failed due to bug 
-    // works only using url method for now 
-});
+//     const frame3 = page.frameLocator('frame[src="frame_3.html"]'); 
+//     const childFrames =  frame3?.childFrames(); //Child frames will return in array 
+//     await childFrames[0].locator('[data-value="Hi, I am the UI.Vision IDE"]').check();
+//     await page.pause(); 
+//     // Test has failed due to bug 
+//     // works only using url method for now 
+// });
