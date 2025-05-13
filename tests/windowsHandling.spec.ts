@@ -57,13 +57,34 @@ test('Multiple Tab Openings Test', async ({page}) =>{
     await pages[2].locator('#alertBox').click();
 }); 
 
-test ('Multiple Windows Openings Test', async ({page}) => {
+test('Multiple Windows opening Test', async ({page}) =>{
     await page.goto('https://www.hyrtutorials.com/p/window-handles-practice.html'); 
 
-    const multipleWindows = await Promise.all([
+    // Setup a listener before clicking the link 
+    const [Popups] = await Promise.all([
         page.waitForEvent('popup'), 
         await page.click('#newWindowsBtn')
     ]); 
 
+    // wait for all windows to load 
+    await Popups.waitForLoadState('domcontentloaded'); 
+    const pages = Popups.context().pages();
 
+    // I am trigerring to open 2 windows 
+    await page.pause(); 
+    await pages[1].bringToFront();
+    await pages[1].locator('#firstName').fill('Sameer');
+    await pages[1].close(); // to avoid if there are any similar locators to exist. 
+    await page.pause(); 
+    const table = pages[2].locator('#contactList');
+    const rows = table.locator('tbody th');
+    const column = table.locator('tr td')
+
+    const matchedRows = rows.filter({
+        has: page.locator('td'),
+        hasText: 'Maria Anders'
+
+    })
+    await matchedRows.locator('//tbody/tr[2]/td[1]/input[1]').check(); 
+    await page.pause();
 }); 
