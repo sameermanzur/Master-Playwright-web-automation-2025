@@ -9,11 +9,11 @@ export default class BasePage { //Depends on Use Case we can create many methods
         this.page = page; 
     }
 
-    async b_navigateTo(url:string, maxTimeOut: number){
+    async b_navigateTo(url:string, maxTimeOut?: number){
         await this.page.goto(url); 
     }
 
-    async clickElement(element:Locator){
+    async b_clickElement(element:Locator){
         await element.click(); 
     }
 
@@ -21,7 +21,7 @@ export default class BasePage { //Depends on Use Case we can create many methods
         await element.waitFor({state:'visible', timeout:maxTimeOut}); 
     }
 
-    async fillFiled(element:Locator,text:string, isForceFill?:boolean, maxTimeOut?:number){
+    async b_fillFilled(element:Locator,text:string, isForceFill?:boolean, maxTimeOut?:number){
         await this.b_waitForElementVisibility(element, maxTimeOut)
         await element.fill(text, {timeout:maxTimeOut, force: isForceFill}); 
     }

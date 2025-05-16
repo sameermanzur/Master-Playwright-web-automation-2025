@@ -8,6 +8,7 @@
 // Traverse pages through constructors 
 // Inheritance- where a class (child) acquires properties and behaviors (methods) from another class (parent). 
 // Establish connection of 3 Pages to Base Page using extends keyword and super(page)
+// We write Base Pages, and cases 
 
 import { test } from '@playwright/test'; 
 
