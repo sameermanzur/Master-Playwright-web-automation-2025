@@ -3,10 +3,11 @@
 // For JS manual export required 
 
 import { Page, Locator } from '@playwright/test';
+import BasePage from './basePage';
 
 // Class always starts with Uppercase 
-export class LoginPage { //Class should always be exported 
-   private readonly page: Page //VariableName : DataType (interface coming from types.d.ts) //Global Variable 
+export class LoginPage extends BasePage{ //Class should always be exported 
+//    private readonly page: Page //VariableName : DataType (interface coming from types.d.ts) //Global Variable 
    private readonly userNameTextbox: Locator; // Jars 
    private readonly passwordTextbox: Locator; 
    private readonly loginButton: Locator; 
@@ -14,7 +15,8 @@ export class LoginPage { //Class should always be exported
 // object instantiation-(initializes the page elements) To fill the locators in the Jars - 
    constructor(page: Page) { // pass the values in a correct sequence. 
     // Bridge between my Class and the external property. 
-    this.page = page //Assign the value of local variable to the Global variable. 
+    super(page); 
+    // this.page = page //Assign the value of local variable to the Global variable. 
     this.userNameTextbox = page.locator('[name="username"]'); 
     this.passwordTextbox = page.locator('//input[@placeholder="Password"]'); 
     this.loginButton = page.locator('[type="submit"]'); 

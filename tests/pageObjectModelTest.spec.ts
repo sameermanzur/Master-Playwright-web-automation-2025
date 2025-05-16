@@ -6,6 +6,9 @@
 // New Page class- In Each Page transition- we will create new Pages with all the locators. 
 // This makes tests more maintainable, reusable, and readable. //code redundancy //external changes should have least impact. 
 // Traverse pages through constructors 
+// Inheritance- where a class (child) acquires properties and behaviors (methods) from another class (parent). 
+// Establish connection of 3 Pages to Base Page using extends keyword and super(page)
+
 import { test } from '@playwright/test'; 
 
 // 3 Page Object Model classes for End to End testing 

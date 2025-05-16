@@ -1,6 +1,7 @@
 import { Page, Locator } from '@playwright/test'; 
+import BasePage from './basePage';
 
-export class DashboardPage {
+export class DashboardPage extends BasePage {
 
     private readonly dashBoardTab: Locator;
     private readonly adminTab : Locator; 
@@ -8,6 +9,7 @@ export class DashboardPage {
     private readonly logoutLink: Locator;
 
     constructor(page : Page){
+        super(page); 
         this.dashBoardTab = page.locator('[class="oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module"]');
         this.adminTab = page.locator('[href="/web/index.php/admin/viewAdminModule"]');
         this.profileAccordion = page.locator('[class="oxd-userdropdown-name"]');
