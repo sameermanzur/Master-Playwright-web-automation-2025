@@ -13,9 +13,8 @@
     "test": "npm run execute:script || npm run posttest",
     "pretest:docker": "npm run clean:reports",
     "posttest:docker": "npm run generate:reports && npm run open:reports:docker",
-    "test:docker": "npm run execute:script || npm run posttest:docker" 
+    "test:docker": "npm run execute:script || npm run posttest:docker"
   },
-  
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -24,7 +23,7 @@
     "@faker-js/faker": "^9.7.0",
     "@playwright/test": "^1.52.0",
     "@types/luxon": "^3.6.2",
-    "@types/node": "^22.14.1",
+    "@types/node": "^22.19.21",
     "@typescript-eslint/eslint-plugin": "^8.32.0",
     "@typescript-eslint/parser": "^8.31.1",
     "allure": "^3.0.0-beta.13",
